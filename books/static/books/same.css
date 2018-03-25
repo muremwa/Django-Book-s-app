@@ -1,0 +1,38 @@
+html {
+    font-size: 17px;
+}
+
+#same {
+    list-style-type: none;
+}
+
+#same li {
+    background: darksalmon;
+    width: 25%;
+    height: 1.5em;
+    margin-top: 0.3em;
+    padding-left: 0.7em;
+    border-radius: 7px;
+    color: rgb(37, 15, 15);
+}
+
+#same a {
+    color: rgb(37, 15, 15);
+    text-decoration: none;
+}
+
+#same a:hover {
+    color: blue;
+}
+
+#other {
+    color: seagreen;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+#red {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    font-size: 2em;
+}

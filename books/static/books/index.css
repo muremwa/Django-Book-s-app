@@ -1,0 +1,51 @@
+html {
+    font-size: 17px;
+}
+
+h4 {
+    color: brown;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+}
+
+li {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: brown;
+    height: 25em;
+    width: 45%;
+    border: 1px solid blue;
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+    border-radius: 10px;
+}
+ li:hover {
+     background-color: rgb(231, 221, 207);
+ }
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#details a:hover {
+    color: black;
+}
+#image {
+    border: 0.4px solid blue;
+    height: 20em;
+    width: 95%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+}
+
+#details a {
+    color: teal;
+}
+
+

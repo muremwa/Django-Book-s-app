@@ -1,0 +1,24 @@
+{% extends "books/base.html" %}
+
+{% block title %}Books by {{author.name}} {% endblock title %}}
+
+{% load staticfiles %}
+{% block style %}<link type="text/css" rel="stylesheet" href="{% static 'books/same.css'%}">{% endblock style %}
+
+
+{% block body %}
+  
+{% if books %}
+
+    <ul id="same">
+        <h2 id="other">Other titles by {{ author.name }}</h2>
+        {% for book in books %}
+            <li><a href="{% url 'books:detail' book.book_id %}">{{book.title}} </a>published {{ book.year_of_publication }}</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p id="red">{{author.name}} has no other books</p>
+{% endif %}
+
+{% endblock body %}

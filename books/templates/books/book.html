@@ -1,0 +1,28 @@
+{% extends "books/base.html" %}
+
+{% block title %}{{ the_book.title }} by {{ the_book.author }}{% endblock title %}}
+
+{% load staticfiles %}
+{% block style %}<link type="text/css" rel="stylesheet" href="{% static 'books/book.css'%}">{% endblock style %}
+
+
+{% block body %}
+  
+<div id='author'>
+    <div id="image" class="book">
+        <img src="{{ the_book.book_cover.url }}" alt="book cover for {{ the_book.title }}">
+    </div>
+    <ul class="book" >
+        <li>Title : {{ the_book.title }} </li>
+        <li>Author : <a href="{% url 'books:author' the_book.author %}">{{the_book.author}}</a></li>
+        <li>Publisher : {{ the_book.publisher }} </li>
+        <li>genre : {{ the_book.genre }} </li>
+        <li>Number of pages : {{ the_book.number_of_pages }} </li>
+        <li>Date of Publictaion : {{ the_book.year_of_publication }} </li>
+    </ul>
+
+    <a href="{% url 'books:same-author' the_book.author%}">View other books by {{ the_book.author }}</a>
+
+</div>
+
+{% endblock body %}

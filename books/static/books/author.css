@@ -1,0 +1,35 @@
+html {
+    font-size: 17px;
+}
+
+#author-page {
+    margin-top: 2em;
+    margin-left: 3em;
+}
+
+#image-au {
+    height: 10em;
+    width: 20%;
+    border: 1px solid rgb(134, 127, 116);
+}
+
+#author-page h4 {
+    color: sienna;
+    font-family: calibri, san-serif;
+    font-size: 1.2em;
+    margin:2em;
+}
+
+#author-page p {
+    color: darkslategray;
+    font-family: calibri, san-serif;
+    width: 30%;
+}
+
+#author-page a {
+    text-decoration: none;
+}
+
+#author-page a:hover {
+    color: black;
+}

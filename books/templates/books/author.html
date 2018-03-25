@@ -1,0 +1,27 @@
+{% extends "books/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{ author.name }}{% endblock title %}
+
+
+{% block style %}
+<link type="text/css" rel="stylesheet" href="{% static 'books/author.css'%}">
+{% endblock style %}
+
+
+{% block body %}
+
+<div id="author-page">
+    <div id="image-au">
+        <img src="{{ author.picture.url }}" alt="image of {{ author.name }}">
+    </div>
+
+
+    <h4>{{ author.name }}</h4>
+
+    <p>{{ author.bio }}</p>
+
+    <a href="{% url 'books:same-author' author.name %}">View books by {{ author.name }}</a>
+    </div>
+{% endblock body %}
