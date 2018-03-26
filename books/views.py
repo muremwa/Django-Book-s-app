@@ -2,14 +2,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import Book, Author
 from django.urls import reverse
+from django.views import generic
 
 
 # books homepage
-def index(request):
-    all_books = Book.objects.all()
-    context = {'all_books': all_books,}
-    return render(request, 'books/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'books/index.html'
+    context_object_name = 'all_books'
 
+    def get_queryset(self):
+        return Book.objects.all()
 
 # each book detail
 def detail(request, book_id):
