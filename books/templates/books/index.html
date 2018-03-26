@@ -24,6 +24,8 @@
                 <a href="{% url 'books:detail' book.book_id %}">{{book.title}}</a> by
                 <a href="{% url 'books:author' book.author %}">{{book.author}}</a>
             </span>
+            <br />
+            <span id="votes"> {{ book.votes }} votes</span>
         </li>
     {% endfor %}
     </ul>

@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import Book, Author
+from django.urls import reverse
 
 
 # books homepage
@@ -34,3 +35,28 @@ def author_detail(request, the_name):
     context = {'author':author}
     return render(request, 'books/author.html', context)
 
+
+# voting for books
+def vote(request, the_book_id):
+    book = get_object_or_404(Book, book_id=the_book_id)
+    author_name = book.author
+    author = Author.objects.get(name = author_name)
+    books = author.book_set.all()
+
+    try:
+        to_vote = get_object_or_404(Book, book_id=request.POST['book'])
+
+    except (KeyError, Book.DoesNotExist):
+        # if you do not select anything
+        return render(request, 'books/same_author.html', {
+            'books': books,
+            'author':author,
+            'error_message': 'You did not select anything',
+        })
+
+    else:
+        # add a vote to selected book
+        to_vote.votes += 1
+        to_vote.save()      
+        # return a webpage
+        return HttpResponseRedirect(reverse('books:index'))

@@ -16,4 +16,7 @@ urlpatterns = [
     # books/drew
     path('author<the_name>/', views.author_detail, name='author'),
 
+    # books/4/vote
+    path('<the_book_id>/vote/', views.vote, name='vote'),
+
 ]

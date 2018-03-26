@@ -19,6 +19,7 @@
         <li>genre : {{ the_book.genre }} </li>
         <li>Number of pages : {{ the_book.number_of_pages }} </li>
         <li>Date of Publictaion : {{ the_book.year_of_publication }} </li>
+        <li>Votes : <strong>{{ the_book.votes }}</strong></li>
     </ul>
 
     <a href="{% url 'books:same-author' the_book.author%}">View other books by {{ the_book.author }}</a>

@@ -9,16 +9,28 @@
 {% block body %}
   
 {% if books %}
+    <div class='red'>
+        {% if error_message %} {{error_message }}{% endif %}
+    </div>
 
-    <ul id="same">
-        <h2 id="other">Other titles by {{ author.name }}</h2>
+    <h2 id='other'>Titles by {{ author.name }}</h2>
+
+    <form action="{% url 'books:vote' author.author_id %}" method="post">
+        {% csrf_token %}
         {% for book in books %}
-            <li><a href="{% url 'books:detail' book.book_id %}">{{book.title}} </a>published {{ book.year_of_publication }}</li>
+        <div id='li'>
+            <input type="radio" name="book" id="book{{ forloop.counter }}" value="{{ book.book_id }}">
+            <label for="book{{ forloop.counter }}"><a href="{% url 'books:detail' book.book_id %}">{{book.title}} </a>published {{ book.year_of_publication }}. Current votes: {{ book.votes }}</label>
+            <br />
+        </div>
         {% endfor %}
-    </ul>
+        <div id='button'><input type="submit" value="Vote"></div>
+    </form>
+
+        
 
 {% else %}
-    <p id="red">{{author.name}} has no other books</p>
+    <p class="red">{{author.name}} has no books</p>
 {% endif %}
 
 {% endblock body %}
