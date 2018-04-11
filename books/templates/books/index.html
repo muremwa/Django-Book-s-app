@@ -10,11 +10,11 @@
 {% if all_books %}
 
     <ul>
-        <h4>Books are listed below</h4>
+        <h4 id="index-h4">Books are listed below</h4>
     {% for book in all_books %}
         <li id='index-li'>
             <div id="image">
-                <img src="{{ book.book_cover.url }}" alt="book cover for {{ book.title }}">
+                <img src=" {{ book.book_cover.url }} " alt="book cover for {{ book.title }}">
             </div>
             <span id='details'>
                 <a href="{% url 'books:detail' book.book_id %}">{{book.title}}</a> by
