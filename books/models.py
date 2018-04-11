@@ -1,4 +1,5 @@
 from django.db import models    
+from django.urls import reverse
 
 
 # table for authors
@@ -25,6 +26,9 @@ class Book(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     book_cover = models.FileField(upload_to='books_cover', default='books_cover/default.png')
     votes = models.IntegerField(default=0)
+
+    def get_absolute_url(self):
+        return reverse('books:detail', kwargs={'book_id': self.book_id})
 
     def __str__(self):
         return '{} by {}'.format(self.title, self.author)

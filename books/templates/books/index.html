@@ -2,10 +2,6 @@
 
 {% load staticfiles %}
 
-{% block style %}
-<link type="text/css" rel="stylesheet" href="{% static 'books/index.css'%}">
-{% endblock style %}
-
 {% block title %}All Books{% endblock title %}
 
 
@@ -16,7 +12,7 @@
     <ul>
         <h4>Books are listed below</h4>
     {% for book in all_books %}
-        <li>
+        <li id='index-li'>
             <div id="image">
                 <img src="{{ book.book_cover.url }}" alt="book cover for {{ book.title }}">
             </div>

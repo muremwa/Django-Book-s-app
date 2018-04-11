@@ -3,6 +3,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Book, Author
 from django.urls import reverse
 from django.views import generic
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView
 
 
 # books homepage
@@ -39,6 +42,7 @@ def author_detail(request, the_name):
 
 
 # voting for books
+@login_required
 def vote(request, the_book_id):
     book = get_object_or_404(Book, book_id=the_book_id)
     author_name = book.author
@@ -62,3 +66,9 @@ def vote(request, the_book_id):
         to_vote.save()      
         # return a webpage
         return HttpResponseRedirect(reverse('books:index'))
+
+
+# adding books
+class BookCreate(LoginRequiredMixin, CreateView):
+    model = Book
+    fields = ['book_id', 'title', 'author', 'publisher', 'number_of_pages', 'year_of_publication', 'genre', 'is_favourite', 'book_cover']

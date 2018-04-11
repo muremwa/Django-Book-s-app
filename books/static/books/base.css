@@ -26,7 +26,7 @@ h4 {
     font-size: 1.2em;
 }
 
-li {
+#index-li {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: brown;
     height: 25em;
@@ -37,7 +37,8 @@ li {
     text-align: center;
     border-radius: 10px;
 }
- li:hover {
+
+#index-li:hover {
      background-color: rgb(231, 221, 207);
  }
 
@@ -52,6 +53,7 @@ a {
 #details a:hover {
     color: black;
 }
+
 #image {
     border: 0.4px solid blue;
     height: 20em;
@@ -98,7 +100,7 @@ a {
 }
 
 
-#image {
+#image-book {
     width: 45%;
     height: 20em;
     border: 0.3px solid burlywood;

@@ -19,4 +19,7 @@ urlpatterns = [
     # books/4/vote
     path('<the_book_id>/vote/', views.vote, name='vote'),
 
+    # books/book/add
+    path('book/add/', views.BookCreate.as_view(), name='add-book'),
+
 ]

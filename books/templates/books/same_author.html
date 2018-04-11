@@ -2,10 +2,6 @@
 
 {% block title %}Books by {{author.name}} {% endblock title %}}
 
-{% load staticfiles %}
-{% block style %}<link type="text/css" rel="stylesheet" href="{% static 'books/same.css'%}">{% endblock style %}
-
-
 {% block body %}
   
 {% if books %}
